@@ -436,7 +436,7 @@ Tk_NameOfCursor(
     if (cursorPtr->otherTable != &dispPtr->cursorNameTable) {
 	goto printid;
     }
-    return cursorPtr->hashPtr->key.string;
+    return Tcl_GetHashKey(cursorPtr->hashPtr->tablePtr, cursorPtr->hashPtr);
 }
 
 /*

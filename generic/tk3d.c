@@ -323,7 +323,7 @@ Tk_NameOf3DBorder(
 {
     TkBorder *borderPtr = (TkBorder *) border;
 
-    return borderPtr->hashPtr->key.string;
+    return Tcl_GetHashKey(borderPtr->hashPtr->tablePtr, borderPtr->hashPtr);
 }
 
 /*

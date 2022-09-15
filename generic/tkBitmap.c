@@ -541,7 +541,8 @@ Tk_NameOfBitmap(
 	goto unknown;
     }
     bitmapPtr = (TkBitmap *)Tcl_GetHashValue(idHashPtr);
-    return bitmapPtr->nameHashPtr->key.string;
+    return Tcl_GetHashKey(bitmapPtr->nameHashPtr->tablePtr,
+	    bitmapPtr->nameHashPtr);
 }
 
 /*

@@ -366,7 +366,7 @@ Tk_NameOfColor(
     TkColor *tkColPtr = (TkColor *) colorPtr;
 
     if (tkColPtr->magic==COLOR_MAGIC && tkColPtr->type==TK_COLOR_BY_NAME) {
-	return tkColPtr->hashPtr->key.string;
+	return Tcl_GetHashKey(tkColPtr->hashPtr->tablePtr, tkColPtr->hashPtr);
     } else {
 	ThreadSpecificData *tsdPtr = (ThreadSpecificData *)
 		Tcl_GetThreadData(&dataKey, sizeof(ThreadSpecificData));

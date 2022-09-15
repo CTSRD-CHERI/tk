@@ -1415,7 +1415,8 @@ Tk_NameOfFont(
 {
     TkFont *fontPtr = (TkFont *) tkfont;
 
-    return fontPtr->cacheHashPtr->key.string;
+    return Tcl_GetHashKey(fontPtr->cacheHashPtr->tablePtr,
+	    fontPtr->cacheHashPtr);
 }
 
 /*
